@@ -1,0 +1,107 @@
+/* reset css for the web pages */
+html, body, h1, h2, h3, h4, h5, h6, p{
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+body{
+    background: #eee2dc;
+}
+header{
+    background: #123c69;
+    color: #edc7b7;
+    padding: 10px;
+}
+.container{
+    margin: auto;
+    width: 80%;
+}
+.column-row{
+    float: left;
+    width: 40%;
+    padding: 45px;
+    text-align: center;
+}
+.column-container{
+    padding: 16px;
+}
+.column-row h1{
+    font-size: 20px;
+    text-align: left;
+}
+.column-row p{
+    font-size: 18px;
+    text-align: left;
+}
+.form-container {
+    padding: 16px;
+    text-decoration: none;
+    text-align: left;
+  }
+/* Input fields in the  */
+.form-container input[type=text]{
+    width: 93%;
+    padding: 15px;
+    border: none;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 2px solid bisque;
+    background-color: #333;
+    color: white;
+}
+.form-container textarea{
+    width: 93%;
+    padding: 15px;
+    border: none;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 2px solid bisque;
+    background-color: #333;
+    color: white;
+}
+.form-container input[type=email]{
+    width: 93%;
+    padding: 15px;
+    border: none;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 2px solid bisque;
+    background-color: #333;
+    color: white;
+}
+.form-container input[type=password]{
+    width: 93%;
+    padding: 15px;
+    border: none;
+    background: #f1f1f1;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 2px solid bisque;
+    background-color: #333;
+    color: white;
+}
+/* Buttons */
+button {
+    background-color: #edc7b7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    /* width: 100%; */
+    opacity: 0.9;
+    box-sizing: border-box;
+    border: 2px solid bisque;
+    background-color: #333;
+    color: white;
+}
+footer{
+    position: fixed;
+    background: #123c69;
+    color: #edc7b7;
+    min-height: 10px;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
