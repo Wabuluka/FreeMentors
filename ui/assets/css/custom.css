@@ -95,6 +95,27 @@ button {
     background-color: #333;
     color: white;
 }
+.mentor-column-left{
+    float: left;
+    width: 80%;
+}
+.mentor-column-right{
+    float: left;
+    width: 20%;
+}
+.mentor{
+    padding: 5px;
+
+}
+.mentor .mentor-name{
+    text-transform: uppercase;
+}
+.mentor .mentor-status-available{
+    color: green;
+}
+.mentor .mentor-status-not-available{
+    color: red;
+}
 footer{
     position: fixed;
     background: #123c69;
