@@ -122,6 +122,28 @@ button {
 .mentor .mentor-status-not-available{
     color: red;
 }
+.admin-column{
+    float: left;
+    width: 33.33%;
+}
+.admin-column .admin-column-header{
+    background: #ac3b61;
+    padding: 5px;
+    font-weight: 700;
+    text-align: center;
+}
+.admin-column .admin-mentor{
+    border: 1px #123c69 solid;
+    padding: 5px;
+    background: #edc7b7;
+    margin: 5px 0 5px 0;
+}
+.admin-column .admin-mentor .admin-mentor-mentorship{
+    color: green;
+}
+.admin-column .admin-mentor .admin-mentor-block{
+    color: red;
+}
 footer{
     position: fixed;
     background: #123c69;
