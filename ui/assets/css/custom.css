@@ -111,7 +111,6 @@ button {
 }
 .mentor{
     padding: 5px;
-
 }
 .mentor .mentor-name{
     text-transform: uppercase;
@@ -154,3 +153,32 @@ footer{
     left: 0;
     width: 100%;
 }
+ /* when the screen gets less than 600px in width hide the main navigation links except the right dashes */
+ @media screen and (max-width: 600px) {
+    html, body{
+        background: #272727;
+    }
+    .container{
+        margin: auto;
+        width: 100%;
+    }
+    .column-row{
+        float: left;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+    .mentor-column-left{
+        float: left;
+        width: 100%;
+    }
+    .mentor-column-right{
+        float: left;
+        width: 100%;
+    }
+    .mentor{
+        margin: 5px;
+        background:#000000;
+        color: #B2B2B2;
+    }
+ }
