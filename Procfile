@@ -1,1 +1,1 @@
-web: nodemon --exec babel-node ./api/index.js
+web: npm run dev
