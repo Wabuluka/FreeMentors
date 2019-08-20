@@ -1,7 +1,7 @@
 import config from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
-import routes from '../api/routes/routes';
+import routes from './routes/routes';
 import morgan from 'morgan';
 
 config.config();
