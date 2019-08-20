@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node ./api/index.js",
+    "build": "babel server --out-dir build",
     "test": "mocha --require @babel/register ./api/tests/tests.js --timeout 10000 --exit",
     "nyc": "nyc --reporter=lcov npm run test && nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc npm test"
