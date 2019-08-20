@@ -6,8 +6,8 @@
   "scripts": {
     "start": "nodemon --exec babel-node ./api/index.js",
     "test": "mocha --require @babel/register ./api/tests/tests.js --timeout 10000 --exit",
-    "coverage": "nyc report",
-    "test:coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "nyc": "nyc --reporter=lcov npm run test && nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc npm test"
   },
   "repository": {
     "type": "git",
