@@ -130,5 +130,41 @@ describe('All routes checker', () =>{
             })
             .catch(err => done(err));
     });
+
+    it('should signup a new admin', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/admin/signup')
+            .send({
+                "email":"test@admin.com",
+	            "password":"test123"
+            })
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    });
+
+    it('User already created', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/admin/signup')
+            .send({
+                "email":"test@admin.com",
+	            "password":"test123"
+            })
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    });
 })
 
