@@ -31,6 +31,8 @@ routes.post('/api/v1/auth/admin/login', admincontroller.AdminController.AdminLog
 routes.get('/api/v1/admin/users/all', Auth.verifyAdmin, admincontroller.AdminController.GetAllUsers);
 // admin get a user by id
 routes.get('/api/v1/admin/users/:id', Auth.verifyAdmin, admincontroller.AdminController.GetOneUser);
+// admin changes user to mentor or viseversa
+routes.patch('/api/v1/admin/users/:id',Auth.verifyAdmin, admincontroller.AdminController.CheckToMentor);
 
 
 

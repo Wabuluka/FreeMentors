@@ -95,5 +95,22 @@ class AdminController{
             data: oneUser
         });
     }
+
+    static CheckToMentor(req, res){
+        const oneUser = User.users.find(user => user.id == req.params.id);
+        if(!oneUser){
+            return res.status(404).send({
+                status: 404,
+                error: 'User not found'
+            });
+        }
+        const modified = moment().format('LLLL')
+        oneUser.isMentor = req.body.isMentor
+        oneUser.lastModified = modified
+        return res.status(202).send({
+            status: 202,
+            oneUser 
+        })
+    }
 }
 export default {AdminController, admins};
