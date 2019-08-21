@@ -1,10 +1,10 @@
-import config from 'dotenv';
+import  dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
 import morgan from 'morgan';
 
-config.config();
+dotenv.config();
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

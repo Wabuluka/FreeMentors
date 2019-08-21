@@ -1,4 +1,6 @@
 import Router from 'express';
+import usercontroller from '../controllers/user';
+
 
 const routes = Router();
 
@@ -10,6 +12,7 @@ routes.get("/api/v1", (req, res) =>
     message: "Welcome to FreeMentor"
   })
 );
-
+// users create accounts to use the application
+routes.post('/api/v1/auth/signup', usercontroller.UserController.RegisterUser);
 
 export default routes;

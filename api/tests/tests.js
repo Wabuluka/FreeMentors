@@ -30,6 +30,52 @@ describe('All routes checker', () =>{
                 res.body.message.should.be.eql('Welcome to FreeMentor');
                 done();
             });
-    })
+    });
+    it('should signup a new user', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/signup')
+            .send({
+                "firstName": "Davies",
+                "lastName": "Wabuluka",
+                "email": "two@test.com",
+                "password": "test123",
+                "address": "nalumunye",
+                "bio": "a good man",
+                "occupation": "teacher",
+                "expertise": "cooking"
+            })
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    });
+    it('should signup a new user', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/signup')
+            .send({
+                "firstName": "Davies",
+                "lastName": "Wabuluka",
+                "email": "two@test.com",
+                "password": "test123",
+                "address": "nalumunye",
+                "bio": "a good man",
+                "occupation": "teacher",
+                "expertise": "cooking"
+            })
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    });
 })
 
