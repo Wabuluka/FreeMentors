@@ -81,5 +81,19 @@ class AdminController{
             data: allusers
         });
     }
+
+    static GetOneUser(req, res){
+        const oneUser = User.users.find(user => user.id == req.params.id);
+        if(!oneUser){
+            return res.status(404).send({
+                status: 404,
+                error: 'User not found'
+            });
+        }
+        return res.status(200).send({
+            status: 200,
+            data: oneUser
+        });
+    }
 }
 export default {AdminController, admins};

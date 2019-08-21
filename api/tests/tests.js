@@ -235,6 +235,35 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('data');
+                done();
+            })
+            .catch(err => done(err));
+    })
+
+    it('admin gets a user by id from the system', (done) => {
+        chai
+            .request(app)
+            .get('/api/v1/admin/users/1')
+            .set('x-access-token', adminToken)
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
+
+    it('admin gets a user by id from the system but the user doesnt exist', (done) => {
+        chai
+            .request(app)
+            .get('/api/v1/admin/users/100')
+            .set('x-access-token', adminToken)
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
                 // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
