@@ -6,6 +6,9 @@ import app from '../index'
 chai.should();
 chai.use(chaiHttp);
 
+let userToken;
+let adminToken;
+
 describe('All routes checker', () =>{
     it('Should check the landing url', (done) =>{
         chai
@@ -87,6 +90,7 @@ describe('All routes checker', () =>{
                 "password": "test123"
             })
             .then((res) => {
+                userToken = res.body.data['token'];
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('data');
@@ -176,6 +180,7 @@ describe('All routes checker', () =>{
 	            "password":"test123"
             })
             .then((res) => {
+                adminToken = res.body.data['token'];
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('data');
@@ -215,6 +220,21 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
+
+    it('admin gets all users in the system', (done) => {
+        chai
+            .request(app)
+            .get('/api/v1/admin/users/all')
+            .set('x-access-token', adminToken)
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
                 // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })

@@ -1,4 +1,5 @@
 import Admin from '../models/admin';
+import User from '../controllers/user';
 import dotenv from 'dotenv';
 import validate from '../middleware/helper';
 import moment from 'moment';
@@ -65,6 +66,20 @@ class AdminController{
                 message: "You are logged in successfully"
             } 
         })
+    }
+
+    static GetAllUsers(req, res){
+        const allusers = User.users;
+        if(allusers.length <= 0){
+            return res.status(404).send({
+                status: 404,
+                message: 'No users found'
+            })
+        }
+        return res.status(200).send({
+            status: 200,
+            data: allusers
+        });
     }
 }
 export default {AdminController, admins};
