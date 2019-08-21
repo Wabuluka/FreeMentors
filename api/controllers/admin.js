@@ -112,5 +112,28 @@ class AdminController{
             oneUser 
         })
     }
+
+    static DeleteOneUser(req, res){
+        const oneUser = User.users.find(user => user.id == req.params.id);
+        if(!oneUser){
+            return res.status(404).send({
+                status: 404,
+                error: 'Not Found'
+            })
+        }
+        const index = User.users.indexOf(oneUser)
+        const removeOne = User.users.splice(index, 1)
+        if(removeOne){
+            return res.status(200).send({
+                status: 200,
+                message: 'Successfully Deleted a User'
+            })
+        } 
+        return res.status(400).send({
+            status: 400,
+            message: 'Unable to delete'
+        })
+        
+    }
 }
 export default {AdminController, admins};

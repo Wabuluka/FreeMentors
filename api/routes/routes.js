@@ -33,6 +33,10 @@ routes.get('/api/v1/admin/users/all', Auth.verifyAdmin, admincontroller.AdminCon
 routes.get('/api/v1/admin/users/:id', Auth.verifyAdmin, admincontroller.AdminController.GetOneUser);
 // admin changes user to mentor or viseversa
 routes.patch('/api/v1/admin/users/:id',Auth.verifyAdmin, admincontroller.AdminController.CheckToMentor);
+// admin can delete user
+routes.delete('/api/v1/admin/users/:id',Auth.verifyAdmin, admincontroller.AdminController.DeleteOneUser);
+
+
 
 
 

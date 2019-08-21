@@ -305,5 +305,35 @@ describe('All routes checker', () =>{
             })
             .catch(err => done(err));
     })
+
+    it('admin deletes user', (done) => {
+        chai
+            .request(app)
+            .delete('/api/v1/admin/users/1')
+            .set('x-access-token', adminToken)
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('message');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
+
+    it('admin deletes user', (done) => {
+        chai
+            .request(app)
+            .delete('/api/v1/admin/users/11')
+            .set('x-access-token', adminToken)
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
 })
 
