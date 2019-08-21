@@ -40,5 +40,31 @@ class AdminController{
             }
         })
     }
+
+    static AdminLogin(req, res){
+        const loginAdmin = admins.find(admin => admin.email === req.body.email);
+        if(!loginAdmin){
+            return res.status(404).send({
+                status: 404,
+                error: `User with  was not found`
+            })
+        }
+        const passwordCompared = validate.comparePassword(loginAdmin.password, req.body.password);
+        if(!passwordCompared){
+            return res.status(401).send({
+                status: 401,
+                error: "Login was denied"
+            });
+        }
+        const token = validate.generateToken(loginAdmin.email)
+        return res.status(200).send({
+            status: 200,
+            data: {
+                token: token,
+                id: loginAdmin.id,
+                message: "You are logged in successfully"
+            } 
+        })
+    }
 }
 export default {AdminController, admins};

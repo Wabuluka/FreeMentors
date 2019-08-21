@@ -166,5 +166,59 @@ describe('All routes checker', () =>{
             })
             .catch(err => done(err));
     });
+
+    it('should login admin', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/admin/login')
+            .send({
+                "email":"test@admin.com",
+	            "password":"test123"
+            })
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
+
+    it('user not found', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/admin/login')
+            .send({
+                "email":"testtest@admin.com",
+	            "password":"test123"
+            })
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
+
+    it('login denied', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/admin/login')
+            .send({
+                "email":"test@admin.com",
+	            "password":"test1231"
+            })
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
 })
 

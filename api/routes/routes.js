@@ -20,5 +20,8 @@ routes.post('/api/v1/auth/login', usercontroller.UserController.UserLogin);
 
 // admin create account
 routes.post('/api/v1/auth/admin/signup', admincontroller.AdminController.RegisterAdmin);
+// admin log in
+routes.post('/api/v1/auth/admin/login', admincontroller.AdminController.AdminLogin);
+
 
 export default routes;
