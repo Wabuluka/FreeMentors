@@ -44,6 +44,33 @@ class UserController{
             }
         })
     }
+
+
+    static UserLogin(req, res){
+        const loginUser = users.find(user => user.email === req.body.email);
+        if(!loginUser){
+            return res.status(404).send({
+                status: 404,
+                error: `User with  was not found`
+            });
+        }
+        const passwordCompared = validate.comparePassword(loginUser.password, req.body.password);
+        if(!passwordCompared){
+            return res.status(401).send({
+                status: 401,
+                error: "Login was denied"
+            });
+        }
+        const token = validate.generateToken(loginUser.email)
+        return res.status(200).send({
+            status: 200,
+            data: {
+                token: token,
+                id: loginUser.id,
+                message: "You are logged in successfully"
+            } 
+        });
+    }
 }
 
 

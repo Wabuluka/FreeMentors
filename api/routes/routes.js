@@ -14,5 +14,7 @@ routes.get("/api/v1", (req, res) =>
 );
 // users create accounts to use the application
 routes.post('/api/v1/auth/signup', usercontroller.UserController.RegisterUser);
+// user can login
+routes.post('/api/v1/auth/login', usercontroller.UserController.UserLogin);
 
 export default routes;
