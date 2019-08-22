@@ -88,6 +88,22 @@ class UserController{
         });
          
     }
+
+    static GetOneMentor(req, res){
+        const oneMentor = req.body.id;
+        const availableMentor = users.find(user => user.isMentor == "true" && user.id == oneMentor);
+        if(availableMentor){
+            console.log(availableMentor)
+            return res.status(200).send({
+                status: 200,
+                availableMentor
+            })
+        }
+        return res.status(404).send({
+            status: 404,
+            error: 'No mentors available at the moment'
+        })
+    }
 }
 
 

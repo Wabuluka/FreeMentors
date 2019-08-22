@@ -38,6 +38,8 @@ routes.delete('/api/v1/admin/users/:id',Auth.verifyAdmin, admincontroller.AdminC
 
 // a user gets all the mentors available
 routes.get('/api/v1/mentors', Auth.verifyUser, usercontroller.UserController.GetAvailableMentors);
+// user gets one mentor
+routes.get('/api/v1/mentors/:id', Auth.verifyUser, usercontroller.UserController.GetOneMentor);
 
 
 export default routes;

@@ -275,7 +275,7 @@ describe('All routes checker', () =>{
             .request(app)
             .patch('/api/v1/admin/users/1')
             .send({
-                "isMentor": true
+                "isMentor": "true"
             })
             .set('x-access-token', adminToken)
             .then((res) => {
@@ -293,7 +293,7 @@ describe('All routes checker', () =>{
             .request(app)
             .patch('/api/v1/admin/users/11')
             .send({
-                "isMentor": true
+                "isMentor": "true"
             })
             .set('x-access-token', adminToken)
             .then((res) => {
@@ -351,5 +351,97 @@ describe('All routes checker', () =>{
             })
             .catch(err => done(err));
     })
+
+
+    it('should signup a new user', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/signup')
+            .send({
+                "firstName": "Davies",
+                "lastName": "Wabuluka",
+                "email": "two@test.com",
+                "password": "test123",
+                "address": "nalumunye",
+                "bio": "a good man",
+                "occupation": "teacher",
+                "expertise": "cooking"
+            })
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    });
+
+    it('should login a user', (done) => {
+        chai
+            .request(app)
+            .post('/api/v1/auth/login')
+            .send({
+                "email": "two@test.com",
+                "password": "test123"
+            })
+            .then((res) => {
+                userToken = res.body.data['token'];
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    });
+
+    it('user gets all the mentors', (done) => {
+        chai
+            .request(app)
+            .get('/api/v1/mentors')
+            .set('x-access-token', userToken)
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('message');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
+
+    // it('admin changes a user to mentor who doesnt exist', (done) => {
+    //     chai
+    //         .request(app)
+    //         .patch('/api/v1/admin/users/1')
+    //         .send({
+    //             "isMentor": "true"
+    //         })
+    //         .set('x-access-token', adminToken)
+    //         .then((res) => {
+    //             expect(res.body).to.be.an('object');
+    //             expect(res.body).to.have.property('status');
+    //             expect(res.body).to.have.property('error');
+    //             // expect(res.body).to.have.property('data').to.be.an('object');
+    //             done();
+    //         })
+    //         .catch(err => done(err));
+    // })
+
+    // it('user gets all the mentors ', (done) => {
+    //     chai
+    //         .request(app)
+    //         .get('/api/v1/mentors')
+    //         .set('x-access-token', userToken)
+    //         .then((res) => {
+    //             expect(res.body).to.be.an('object');
+    //             expect(res.body).to.have.property('status');
+    //             expect(res.body).to.have.property('message');
+    //             // expect(res.body).to.have.property('data').to.be.an('object');
+    //             done();
+    //         })
+    //         .catch(err => done(err));
+    // })
 })
 
