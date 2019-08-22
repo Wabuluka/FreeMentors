@@ -335,5 +335,21 @@ describe('All routes checker', () =>{
             })
             .catch(err => done(err));
     })
+
+    it('user gets all the mentors but the mentor is deleted', (done) => {
+        chai
+            .request(app)
+            
+            .get('/api/v1/mentors')
+            .set('x-access-token', userToken)
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('error');
+                // expect(res.body).to.have.property('data').to.be.an('object');
+                done();
+            })
+            .catch(err => done(err));
+    })
 })
 

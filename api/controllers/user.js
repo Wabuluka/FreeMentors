@@ -10,7 +10,7 @@ class UserController{
         const id = users.length +1;
         const password = validate.hashPassword(req.body.password)
         const status = "unverified";
-        const isMentor = true;
+        // const isMentor = true;
         const userEmail = users.find(user => user.email === req.body.email);
         if(!validate.isValidEmail(req.body.email)){
             return res.status(400).json({
@@ -27,7 +27,7 @@ class UserController{
         const user = new User(
             id, req.body.firstName, req.body.lastName,
             req.body.email, password, req.body.address, req.body.occupation,
-            req.body.expertise, status, isMentor
+            req.body.expertise
         )
         const token = validate.generateToken(user.email)
         users.push(user);
@@ -40,6 +40,7 @@ class UserController{
                 lastName: user.lastName,
                 email: user.email,
                 password: user.password,
+                isMentor: user.isMentor,
                 createdOn: user.createdOn
             }
         })
@@ -70,6 +71,22 @@ class UserController{
                 message: "You are logged in successfully"
             } 
         });
+    }
+
+    static GetAvailableMentors(req, res){
+        const availableMentors = users.filter(user => user.isMentor == "true");
+        if(availableMentors.length <= 0){
+            return res.status(404).send({
+                status: 404,
+                message: "No available mentors"
+            }); 
+        }
+        console.log(availableMentors)
+        return res.status(200).send({
+            status: 200,
+            data: availableMentors
+        });
+         
     }
 }
 

@@ -36,8 +36,8 @@ routes.patch('/api/v1/admin/users/:id',Auth.verifyAdmin, admincontroller.AdminCo
 // admin can delete user
 routes.delete('/api/v1/admin/users/:id',Auth.verifyAdmin, admincontroller.AdminController.DeleteOneUser);
 
-
-
+// a user gets all the mentors available
+routes.get('/api/v1/mentors', Auth.verifyUser, usercontroller.UserController.GetAvailableMentors);
 
 
 export default routes;
