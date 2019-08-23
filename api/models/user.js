@@ -12,7 +12,7 @@ class User{
             this.bio = bio;
             this.occupation = occupation;
             this.expertise = expertise;
-            this.status = status;
+            this.status = "available";
             this.isMentor = "false";
             this.createdOn = moment().format('LLLL')
             this.lastModified = moment().format('LLLL');
