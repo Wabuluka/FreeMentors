@@ -46,5 +46,9 @@ routes.get('/api/v1/mentors/:id', Auth.verifyUser, usercontroller.UserController
 routes.post('/api/v1/sessions', Auth.verifyUser, sessionController.SessionController.createSession);
 // mentor sees session requests
 routes.get('/api/v1/sessions/requests', Auth.verifyUser, usercontroller.UserController.mentorViewSessionRequests);
+// mentor sees a session request
+routes.get('/api/v1/sessions/requests/:id', Auth.verifyUser, usercontroller.UserController.mentorViewSingleSessionRequest);
+// accept session
+routes.patch('/api/v1/sessions/requests/:id/accept', Auth.verifyUser, usercontroller.UserController.mentorAcceptsRequest);
 
 export default routes;

@@ -116,8 +116,42 @@ class UserController{
         return res.status(200).send({
             status: 200,
             data: sessionRequests
-        })
-        
+        })  
+    }
+
+    static mentorViewSingleSessionRequest(req, res){
+        const sessionId = req.body.id
+        const sessionRequests = Sessions.SessionsData.filter(session => session.mentorId === 1, session => session.id === sessionId)
+        if(sessionRequests <= 0){
+            return res.status(404).send({
+                status: 404,
+                error: 'No sessions for you'
+            })
+        }
+        return res.status(200).send({
+            status: 200,
+            data: sessionRequests
+        })  
+    }
+
+    static mentorAcceptsRequest(req, res){
+        const sessionId = req.body.id
+        const sessionRequest = Sessions.SessionsData.find(
+            session => session.mentorId === 1, 
+            session => session.id === sessionId,
+            session => session.status === "pending")
+        if(sessionRequest <= 0){
+            return res.status(404).send({
+                status: 404,
+                error: 'No sessions for you'
+            })
+        }
+        const accepted = sessionRequest.status = "accepted";
+        console.log(accepted)
+        return res.status(200).send({
+            status: 200,
+            data: sessionRequest
+        })  
     }
 }
 
