@@ -46,13 +46,43 @@ $npm start
 After all the above are met, it is time to start testing the system.
 
 ### Table of endpoints and their descriptions as used in the system API
-|   METHODS     |   URL ENDPOINT                        |   DESCRIPTION                 |
-|---------------|---------------------------------------|-------------------------------|
-|   POST        |/api/v1/auth/admin/signup              |Admin Registration             |
-|   POST        |/api/v1/auth/admin/login               |Admin Login                    |
-|   POST        |/api/v1/auth/signup                    |User Registration              |
-|   POST        |/api/v1/auth/login                     |Admin Login                    |
-|   GET         |/api/v1/admin/users/all                |Admin Get All Users            |
-|   GET         |/api/v1/admin/users/1                  |Admin Get One User             |
-|   PATCH       |/api/v1/admin/users/1                  |Admin changes User to Mentor   |
-|   DELETE      |/api/v1/admin/users/1                  |Admin deletes Mentor           |
+|   METHODS     |   URL ENDPOINT                        |   DESCRIPTION                  |
+|---------------|---------------------------------------|--------------------------------|
+|   POST        |/api/v1/auth/admin/signup              |Admin Registration              |
+|   POST        |/api/v1/auth/admin/login               |Admin Login                     |
+|   POST        |/api/v1/auth/signup                    |User Registration               |
+|   POST        |/api/v1/auth/login                     |Admin Login                     |
+|   GET         |/api/v1/admin/users/all                |Admin Get All Users             |
+|   GET         |/api/v1/admin/users/1                  |Admin Get One User              |
+|   PATCH       |/api/v1/admin/users/1                  |Admin changes User to Mentor    |
+|   DELETE      |/api/v1/admin/users/1                  |Admin deletes Mentor            |
+|   GET         |/api/v1/mentors                        |User gets all avialable mentors |
+|   GET         |/api/v1/mentors/1                      |User gets one avialable mentor  |
+|   POST        |/api/v1/sessions                       |User creates sessions           |
+|   GET         |/api/v1/sessions/requests              |Mentor gets all the requests    |
+|   GET         |/api/v1/sessions/requests/1            |Mentor gets one request         |
+|   PATCH       |/api/v1/sessions/requests/1/accept     |Mentor Accepts a session        |
+|   PATCH       |/api/v1/sessions/requests/1/decline    |Mentor declines a session       |
+
+
+
+### Running Unit Tests
+The system has been developed with the aspect of TDD which means all the components have been testing using Unit Tests.
+To carry out the tests one must run the following command which shows all the tests done.
+```
+$npm test
+```
+If the following command is run, one must be able to see the coverage of the tests done.
+```
+$npm run coverage
+```
+## Deployment
+This API has been deployed on Heroku for live viewing. The link can be found below
+[epicmail on heroku](https://freementor.herokuapp.com/api/v2/auth/signup) - Live demo
+
+## Documentation
+For a proper documentation of this API please refer to the link below
+[epicmail documentation](https://freementor.herokuapp.com/apidocs) - Live demo
+
+## Developer
+**Davies Wabuluka**
