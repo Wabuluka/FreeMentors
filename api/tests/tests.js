@@ -339,7 +339,6 @@ describe('All routes checker', () =>{
     it('user gets all the mentors but the mentor is deleted', (done) => {
         chai
             .request(app)
-            
             .get('/api/v1/mentors')
             .set('x-access-token', userToken)
             .then((res) => {

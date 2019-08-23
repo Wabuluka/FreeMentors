@@ -91,18 +91,17 @@ class UserController{
 
     static GetOneMentor(req, res){
         const oneMentor = req.body.id;
-        const availableMentor = users.find(user => user.isMentor == "true" && user.id == oneMentor);
-        if(availableMentor){
-            console.log(availableMentor)
-            return res.status(200).send({
-                status: 200,
-                availableMentor
+        const availableMentor = users.find(user => user.isMentor == "true", user => user.id === oneMentor);
+        if(!availableMentor){    
+            return res.status(404).send({
+                status: 404,
+                error: 'No mentors available at the moment'
             })
         }
-        return res.status(404).send({
-            status: 404,
-            error: 'No mentors available at the moment'
-        })
+        return res.status(200).send({
+            status: 200,
+            data: availableMentor
+        })    
     }
 }
 
