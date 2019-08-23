@@ -41,11 +41,18 @@ $npm start
 ```
 - This shall start the server
 
-* In order to easily test the system , I recommend having Postman installed on your computer
+* In order to easily test the system , I recommend having Postman installed on your computer.
+
 After all the above are met, it is time to start testing the system.
 
 ### Table of endpoints and their descriptions as used in the system API
-
-
-
-
+|   METHODS     |   URL ENDPOINT                        |   DESCRIPTION                 |
+|---------------|---------------------------------------|-------------------------------|
+|   POST        |/api/v1/auth/admin/signup              |Admin Registration             |
+|   POST        |/api/v1/auth/admin/login               |Admin Login                    |
+|   POST        |/api/v1/auth/signup                    |User Registration              |
+|   POST        |/api/v1/auth/login                     |Admin Login                    |
+|   GET         |/api/v1/admin/users/all                |Admin Get All Users            |
+|   GET         |/api/v1/admin/users/1                  |Admin Get One User             |
+|   PATCH       |/api/v1/admin/users/1                  |Admin changes User to Mentor   |
+|   DELETE      |/api/v1/admin/users/1                  |Admin deletes Mentor           |
