@@ -43,6 +43,8 @@ routes.get('/api/v1/mentors', Auth.verifyUser, usercontroller.UserController.Get
 routes.get('/api/v1/mentors/:id', Auth.verifyUser, usercontroller.UserController.GetOneMentor);
 
 // users create sessions
-routes.post('/api/v1/sessions', Auth.verifyUser, sessionController.SessionController.createSession)
+routes.post('/api/v1/sessions', Auth.verifyUser, sessionController.SessionController.createSession);
+// mentor sees session requests
+routes.get('/api/v1/sessions/requests', Auth.verifyUser, usercontroller.UserController.mentorViewSessionRequests);
 
 export default routes;

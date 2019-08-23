@@ -1,4 +1,5 @@
 import User from '../models/user';
+import Sessions from '../controllers/session';
 import dotenv from 'dotenv';
 import validate from '../middleware/helper';
 
@@ -102,6 +103,21 @@ class UserController{
             status: 200,
             data: availableMentor
         })    
+    }
+
+    static mentorViewSessionRequests(req, res){
+        const sessionRequests = Sessions.SessionsData.filter(session => session.mentorId === 1)
+        if(sessionRequests <= 0){
+            return res.status(404).send({
+                status: 404,
+                error: 'No sessions for you'
+            })
+        }
+        return res.status(200).send({
+            status: 200,
+            data: sessionRequests
+        })
+        
     }
 }
 
