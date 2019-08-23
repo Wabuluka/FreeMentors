@@ -1,6 +1,7 @@
 import Router from 'express';
 import usercontroller from '../controllers/user';
 import admincontroller from '../controllers/admin';
+import sessionController from '../controllers/session';
 import Auth from '../middleware/auth';
 
 const routes = Router();
@@ -41,5 +42,7 @@ routes.get('/api/v1/mentors', Auth.verifyUser, usercontroller.UserController.Get
 // user gets one mentor
 routes.get('/api/v1/mentors/:id', Auth.verifyUser, usercontroller.UserController.GetOneMentor);
 
+// users create sessions
+routes.post('/api/v1/sessions', Auth.verifyUser, sessionController.SessionController.createSession)
 
 export default routes;
