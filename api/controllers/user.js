@@ -146,8 +146,26 @@ class UserController{
                 error: 'No sessions for you'
             })
         }
-        const accepted = sessionRequest.status = "accepted";
-        console.log(accepted)
+        sessionRequest.status = "accepted";
+        return res.status(200).send({
+            status: 200,
+            data: sessionRequest
+        })  
+    }
+
+    static mentorDeclinesRequest(req, res){
+        const sessionId = req.body.id
+        const sessionRequest = Sessions.SessionsData.find(
+            session => session.mentorId === 1, 
+            session => session.id === sessionId,
+            session => session.status === "pending")
+        if(sessionRequest <= 0){
+            return res.status(404).send({
+                status: 404,
+                error: 'No sessions for you'
+            })
+        }
+        sessionRequest.status = "declined";
         return res.status(200).send({
             status: 200,
             data: sessionRequest

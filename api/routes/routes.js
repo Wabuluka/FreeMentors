@@ -50,5 +50,7 @@ routes.get('/api/v1/sessions/requests', Auth.verifyUser, usercontroller.UserCont
 routes.get('/api/v1/sessions/requests/:id', Auth.verifyUser, usercontroller.UserController.mentorViewSingleSessionRequest);
 // accept session
 routes.patch('/api/v1/sessions/requests/:id/accept', Auth.verifyUser, usercontroller.UserController.mentorAcceptsRequest);
+// decline session
+routes.patch('/api/v1/sessions/requests/:id/decline', Auth.verifyUser, usercontroller.UserController.mentorDeclinesRequest);
 
 export default routes;
