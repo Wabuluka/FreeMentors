@@ -78,11 +78,11 @@ $npm run coverage
 ```
 ## Deployment
 This API has been deployed on Heroku for live viewing. The link can be found below
-[epicmail on heroku](https://freementor.herokuapp.com/api/v2/auth/signup) - Live demo
+[Free Mentors on heroku](https://freementor.herokuapp.com/) - Live demo
 
 ## Documentation
 For a proper documentation of this API please refer to the link below
-[epicmail documentation](https://freementor.herokuapp.com/apidocs) - Live demo
+[Free Mentors documentation](https://documenter.getpostman.com/view/5579616/SVfMRpFq) - Live demo
 
 ## Developer
 **Davies Wabuluka**
