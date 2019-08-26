@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "babel-node ./server.js",
     "test": "mocha --require @babel/register ./api/tests/tests.js --timeout 10000 --exit",
     "nyc": "nyc --reporter=lcov npm run test && nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc npm test | coveralls",
