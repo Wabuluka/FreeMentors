@@ -5,10 +5,9 @@
   "engines": {
     "node": ">=6.11.5"
   },
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production babel-node server.js",
-    "dev": "cross-env NODE_ENV=production nodemon --exec babel-node server.js",
+    "start":"node_modules/.bin/babel-node server.js",
     "test": "mocha --require @babel/register ./api/tests/tests.js --timeout 10000 --exit",
     "nyc": "nyc --reporter=lcov npm run test && nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc npm test | coveralls",
