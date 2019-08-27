@@ -7,7 +7,7 @@
     "lint": "./node_modules/.bin/eslint ./api",
     "lint:fix": "./node_modules/.bin/eslint ./api --fix || true",
     "build": "babel api --out-dir build",
-    "start": "node build/server.js",
+    "start": "babel api --out-dir build && node build/server.js",
     "start-dev": "nodemon --exec babel-node ./api/server.js",
     "nyc": "nyc --reporter=lcov npm run test && nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc npm test",
