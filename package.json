@@ -1,59 +1,55 @@
 {
-  "name": "freementors",
+  "name": "myproject_one",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": ">=6.11.5"
-  },
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start":"node_modules/.bin/babel-node server.js",
-    "test": "mocha --require @babel/register ./api/tests/tests.js --timeout 10000 --exit",
+    "lint": "./node_modules/.bin/eslint ./api",
+    "lint:fix": "./node_modules/.bin/eslint ./api --fix || true",
+    "build": "babel api --out-dir build",
+    "start": "node build/server.js",
+    "start-dev": "nodemon --exec babel-node ./api/server.js",
     "nyc": "nyc --reporter=lcov npm run test && nyc report --reporter=text-lcov | coveralls",
-    "coverage": "nyc npm test | coveralls",
-    "test:coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc npm test",
+    "heroku-postbuild": "npm run build",
+    "test": "nyc --reporter=text mocha --timeout 10000 -c ./api/tests/tests.js  --require @babel/register --exit"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wabuluka/FreeMentors.git"
+    "url": "git+https://github.com/Wabuluka/myproject_one.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Wabuluka/FreeMentors/issues"
+    "url": "https://github.com/Wabuluka/myproject_one/issues"
   },
-  "homepage": "https://github.com/Wabuluka/FreeMentors#readme",
+  "homepage": "https://github.com/Wabuluka/myproject_one#readme",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/polyfill": "^7.4.3",
     "bcrypt": "^3.0.6",
-    "body-parser": "^1.19.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
     "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "dotenv": "^8.1.0",
-    "express": "^4.17.1",
+    "chai-http": "^4.2.1",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
-    "mocha": "^6.2.0",
+    "mocha": "^6.1.4",
     "moment": "^2.24.0",
-    "morgan": "^1.9.1",
-    "nyc": "^14.1.1"
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/node": "^7.5.5",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-stage-2": "^7.0.0",
-    "@babel/register": "^7.5.5",
-    "@babel/runtime": "^7.5.5",
-    "babel-loader": "^8.0.6",
-    "coveralls": "^3.0.6",
-    "cross-env": "^5.2.0",
-    "eslint": "^6.2.1",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "mocha-lcov-reporter": "^1.3.0"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/register": "^7.4.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^1.18.11",
+    "nyc": "^13.3.0"
   }
 }
