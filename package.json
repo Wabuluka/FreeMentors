@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/Wabuluka/myproject_one#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.4.3",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
@@ -40,6 +39,7 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.4.3",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
