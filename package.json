@@ -1,5 +1,5 @@
 {
-  "name": "myproject_one",
+  "name": "freementors",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "build": "babel api --out-dir build",
     "start": "babel-node server.js",
     "start-dev": "nodemon --exec babel-node ./api/server.js",
-    "test": "nyc --reporter=lcov --reporter=html --reporter=text mocha ./api/tests/tests.js --timeout 10000 --exit",
+    "test": "nyc --reporter=text mocha --timeout 10000 -c ./api/tests/tests.js  --require @babel/register --exit",
     "coverage": "nyc report --reporter=html --reporter=text _mocha",
     "test:coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Wabuluka/myproject_one#readme",
   "dependencies": {
+    "@babel/core": "^7.5.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
@@ -44,6 +45,7 @@
     "nyc": "^14.1.1"
   },
   "devDependencies": {
+    "@babel/register": "^7.5.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
