@@ -75,7 +75,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -112,7 +111,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -129,7 +127,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -165,7 +162,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -202,7 +198,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -220,7 +215,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -264,7 +258,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -282,7 +275,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('oneUser');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -300,7 +292,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -315,7 +306,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('message');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -330,7 +320,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -345,7 +334,6 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
@@ -404,43 +392,9 @@ describe('All routes checker', () =>{
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('message');
-                // expect(res.body).to.have.property('data').to.be.an('object');
                 done();
             })
             .catch(err => done(err));
     })
-
-    // it('admin changes a user to mentor who doesnt exist', (done) => {
-    //     chai
-    //         .request(app)
-    //         .patch('/api/v1/admin/users/1')
-    //         .send({
-    //             "isMentor": "true"
-    //         })
-    //         .set('x-access-token', adminToken)
-    //         .then((res) => {
-    //             expect(res.body).to.be.an('object');
-    //             expect(res.body).to.have.property('status');
-    //             expect(res.body).to.have.property('error');
-    //             // expect(res.body).to.have.property('data').to.be.an('object');
-    //             done();
-    //         })
-    //         .catch(err => done(err));
-    // })
-
-    // it('user gets all the mentors ', (done) => {
-    //     chai
-    //         .request(app)
-    //         .get('/api/v1/mentors')
-    //         .set('x-access-token', userToken)
-    //         .then((res) => {
-    //             expect(res.body).to.be.an('object');
-    //             expect(res.body).to.have.property('status');
-    //             expect(res.body).to.have.property('message');
-    //             // expect(res.body).to.have.property('data').to.be.an('object');
-    //             done();
-    //         })
-    //         .catch(err => done(err));
-    // })
 })
 

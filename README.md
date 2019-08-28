@@ -76,6 +76,13 @@ If the following command is run, one must be able to see the coverage of the tes
 ```
 $npm run coverage
 ```
+
+## User Inferface
+The system has the UI hosted on the link below
+```
+ https://wabuluka.github.io/FreeMentors/ui
+```
+
 ## Deployment
 This API has been deployed on Heroku for live viewing. The link can be found below
 [Free Mentors on heroku](https://freementor.herokuapp.com/) - Live demo

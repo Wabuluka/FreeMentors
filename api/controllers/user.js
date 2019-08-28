@@ -9,8 +9,19 @@ dotenv.config();
 class UserController{
     static RegisterUser(req, res){
         const id = users.length +1;
-        const password = validate.hashPassword(req.body.password)
-        const status = "unverified";
+        const passInput = req.body.password
+        if (passInput.length < 8){
+            return res.status(400).send({
+                status: 400,
+                error: "Password too short"
+            });
+        }
+        var pass1 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        const check2 = passInput.match(pass1);
+        if(!check2){
+            
+        }
+        const password = validate.hashPassword(passInput)
         // const isMentor = true;
         const userEmail = users.find(user => user.email === req.body.email);
         if(!validate.isValidEmail(req.body.email)){
@@ -23,7 +34,7 @@ class UserController{
             return res.status(400).send({
                 status: 400,
                 error: "User already registered with this email!"
-            })
+            }) 
         }
         const user = new User(
             id, req.body.firstName, req.body.lastName,
@@ -42,7 +53,8 @@ class UserController{
                 email: user.email,
                 password: user.password,
                 isMentor: user.isMentor,
-                createdOn: user.createdOn
+                createdOn: user.createdOn,
+                status: user.status
             }
         })
     }
