@@ -31,8 +31,8 @@ class UserController{
             })
         }
         if (userEmail){
-            return res.status(400).send({
-                status: 400,
+            return res.status(409).send({
+                status: 409,
                 error: "User already registered with this email!"
             }) 
         }
@@ -54,7 +54,7 @@ class UserController{
                 password: user.password,
                 isMentor: user.isMentor,
                 createdOn: user.createdOn,
-                status: user.status
+                // status: user.status
             }
         })
     }
