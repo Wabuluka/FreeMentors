@@ -42,7 +42,7 @@ describe('All routes checker', () =>{
                 "firstName": "Davies",
                 "lastName": "Wabuluka",
                 "email": "two@test.com",
-                "password": "test123",
+                "password": "test@123",
                 "address": "nalumunye",
                 "bio": "a good man",
                 "occupation": "teacher",
@@ -65,7 +65,7 @@ describe('All routes checker', () =>{
                 "firstName": "Davies",
                 "lastName": "Wabuluka",
                 "email": "two@test.com",
-                "password": "test123",
+                "password": "test@123",
                 "address": "nalumunye",
                 "bio": "a good man",
                 "occupation": "teacher",
@@ -86,7 +86,7 @@ describe('All routes checker', () =>{
             .post('/api/v1/auth/login')
             .send({
                 "email": "two@test.com",
-                "password": "test123"
+                "password": "test@123"
             })
             .then((res) => {
                 userToken = res.body.data['token'];
@@ -348,7 +348,7 @@ describe('All routes checker', () =>{
                 "firstName": "Davies",
                 "lastName": "Wabuluka",
                 "email": "two@test.com",
-                "password": "test123",
+                "password": "test@123",
                 "address": "nalumunye",
                 "bio": "a good man",
                 "occupation": "teacher",
@@ -370,7 +370,7 @@ describe('All routes checker', () =>{
             .post('/api/v1/auth/login')
             .send({
                 "email": "two@test.com",
-                "password": "test123"
+                "password": "test@123"
             })
             .then((res) => {
                 userToken = res.body.data['token'];
