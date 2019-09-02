@@ -3,12 +3,17 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './api/routes/routes';
 import morgan from 'morgan';
+import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger.json';
 
 dotenv.config();
 const app = express();
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'))
+app.use(cors());
 app.use(routes);
 
 const port = process.env.PORT || 8080;
