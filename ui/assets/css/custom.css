@@ -148,11 +148,17 @@ button {
     width: 80%;
 }
 .mentor-column-right{
+    margin-top: -300px;
     background: #B2B2B2;
     float: left;
     width: 20%;
 }
-
+.mentor-column-right-o{
+    margin-top: -300px;
+    background: #B2B2B2;
+    float: right;
+    width: 20%;
+}
 .admin-column{
     float: left;
     width: 33.33%;
@@ -232,8 +238,20 @@ float: left;
     height: 100px;
     width: 100px !important;
 }
-
-
+.coloum-down{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+.row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
 
 
@@ -318,6 +336,9 @@ footer{
         color: #fff;
         width: 40%;
       }
+    .mentor-column-right{
+        margin-top: 300px;
+    }
     footer{
         /* position: absolute; */
         background: #123c69;

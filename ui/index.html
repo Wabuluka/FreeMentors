@@ -13,6 +13,8 @@
             <div class="container">
                     <h1><a href="user-mentors.html">FreeMentor</a></h1>
                 <div class="nav-bar-right">
+                        <a Onclick="openPage('Home', this)">Sign Up</a>
+                        <a onclick="openPage('News', this)" id="defaultOpen">Login</a>
                     <a href="about.html">About</a>
                     <a href="javascript:void(0);" class="mobile" onclick="myFunction()">
                         <span></span>
@@ -24,7 +26,18 @@
         </nav>
     </header>
     <section class="input-section">
-
+        <div class="container row">
+            <p><strong><center>Clear and precise steps to get going with free mentor</center></strong></p>
+            <div class="coloum-down">
+                <p>create an account</p> 
+            </div>
+            <div class="coloum-down">
+                <p>get verified</p> 
+            </div>
+            <div class="coloum-down">
+                <p>start mentorship sessions</p> 
+            </div>
+        </div>
         <div class="container">
             <div class="column-row">
                 <div class="column-container">
@@ -36,9 +49,6 @@
                 </div>
             </div>
             <div class="column-row">
-                <button class="tablink" onclick="openPage('Home', this, 'red')">Sign Up</button>
-                <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">Login</button>
-
                 <div id="Home" class="tabcontent">
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
@@ -62,6 +72,8 @@
                 </div>
             </div>
         </div>
+        
+        
     </section>
 <footer>
     <div class="container">
