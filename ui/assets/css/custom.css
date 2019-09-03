@@ -20,11 +20,11 @@ header a{
 }
 
 nav {
-    background: #333;
+    /* background: #333; */
     color: #fff;
 }
 .top-navigation{
-    background-color: #333;
+    /* background-color: #333; */
     overflow: hidden;
 }
 .top-navigation a{
@@ -68,13 +68,13 @@ nav {
     font-size: 18px;
     text-align: left;
 }
-.form-container {
+.tabcontent {
     padding: 16px;
     text-decoration: none;
     text-align: left;
   }
 /* Input fields in the  */
-.form-container input[type=text]{
+.tabcontent input[type=text]{
     width: 93%;
     padding: 15px;
     border: none;
@@ -84,7 +84,7 @@ nav {
     background-color: #333;
     color: white;
 }
-.form-container textarea{
+.tabcontent input[type=email]{
     width: 93%;
     padding: 15px;
     border: none;
@@ -94,17 +94,7 @@ nav {
     background-color: #333;
     color: white;
 }
-.form-container input[type=email]{
-    width: 93%;
-    padding: 15px;
-    border: none;
-    margin-top: 10px;
-    box-sizing: border-box;
-    border: 2px solid bisque;
-    background-color: #333;
-    color: white;
-}
-.form-container input[type=password]{
+.tabcontent input[type=password]{
     width: 93%;
     padding: 15px;
     border: none;
@@ -115,6 +105,12 @@ nav {
     background-color: #333;
     color: white;
 }
+.tabcontent {
+    color: #333;
+    display: none;
+    padding: 10px 10px;
+    height: 100%;
+  }
 /* Buttons */
 button {
     background-color: #edc7b7;
@@ -181,6 +177,9 @@ footer{
     bottom: 0;
     left: 0;
     width: 100%;
+}
+footer .container{
+    align-content: center;
 }
  /* when the screen gets less than 600px in width hide the main navigation links except the right dashes */
  @media screen and (max-width: 600px) {

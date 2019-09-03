@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Login and Registraton Form design</title>
+        <link href="assets/css/one.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="login-page">
+            <button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
+            <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
+            <button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
+            <button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+
+            <div id="Home" class="tabcontent">
+                <h3>Home</h3>
+                <p>Home is where the heart is..</p>
+              </div>
+              
+              <div id="News" class="tabcontent">
+                <h3>News</h3>
+                <p>Some news this fine day!</p> 
+              </div>
+              
+              <div id="Contact" class="tabcontent">
+                <h3>Contact</h3>
+                <p>Get in touch, or swing by for a cup of coffee.</p>
+              </div>
+              
+              <div id="About" class="tabcontent">
+                <h3>About</h3>
+                <p>Who we are and what we do.</p>
+              </div>
+            </div>
+    </body>
+    <script src="assets/js/custom.js"></script>
+</html>
+
+
+<form action="login.html" id='signup_form' >
+    <div class="form-container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <input type="text" placeholder="Enter Firstname">
+        <input type="text" placeholder="Enter Lastname">
+        <input type="email" placeholder="Enter Email">
+        <input type="password" placeholder="Enter Password">
+        <input type="password" placeholder="Confirm Password">
+        <button type="submit" class="signupbtn" >Register</button><br>
+        <a href="login.html">I already have an account?</a>
+    </div>
+</form>

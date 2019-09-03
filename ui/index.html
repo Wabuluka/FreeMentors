@@ -35,28 +35,35 @@
                 </div>
             </div>
             <div class="column-row">
-                <form action="login.html" id='signup_form' >
-                    <div class="form-container">
-                        <h1>Sign Up</h1>
-                        <p>Please fill in this form to create an account.</p>
+                <button class="tablink" onclick="openPage('Home', this, 'red')">Sign Up</button>
+                <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">Login</button>
+
+                <div id="Home" class="tabcontent">
+                    <h1>Sign Up</h1>
+                    <p>Please fill in this form to create an account.</p>
+                    <form>
                         <input type="text" placeholder="Enter Firstname">
                         <input type="text" placeholder="Enter Lastname">
                         <input type="email" placeholder="Enter Email">
-                        <textarea type="text" placeholder="Bio" cols="51" rows="10"></textarea>
-                        <input type="text" placeholder="Occupation">
-                        <input type="text" placeholder="Expertise">
                         <input type="password" placeholder="Enter Password">
                         <input type="password" placeholder="Confirm Password">
                         <button type="submit" class="signupbtn" >Register</button><br>
-                        <a href="login.html">I already have an account?</a>
-                    </div>
-                </form>
+                    </form>
+                </div>
+                <div id="News" class="tabcontent">
+                    <h1>Sign Up</h1>
+                    <p>Login to start or continue using FreeMentor.</p>
+                    <input type="email" placeholder="Enter Email">
+                    
+                    <input type="password" placeholder="Enter Password">
+                    <button type="submit" class="signupbtn" >Register</button>
+                </div>
             </div>
         </div>
     </section>
 <footer>
     <div class="container">
-        <p>dwabuluka</p>
+        <p><center>dwabuluka</center></p>
     </div>
 </footer>
 </body>
