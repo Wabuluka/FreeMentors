@@ -9,63 +9,88 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1><a href="user-mentors.html">FreeMentor</a></h1>
-        </div>
+        <nav class="top-navigation" id="myTopnav">
+            <div class="container">
+                    <h1><a href="user-mentors.html">FreeMentor</a></h1>
+                <div class="nav-bar-right">
+                    <a href="login.html">About</a>
+                    <a href="index.html">Logout</a>
+                    <a href="javascript:void(0);" class="mobile" onclick="myFunction()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
     </header>
-    <section class="input-section">
-        <div class="container">
-            <div class="mentor-column-left">
-                <div class="mentor">
-                    <h3 class="mentor-name"><a href="mentor-view.html">Davies Wabuluka</a></h3>
-                    <p>"Algorithms that forget their root are deemed to repeat it"</p>
-                    <h4>Lecturer Makerere University</h4>
-                    <small class="mentor-status-available">Available</small>
-                    <small class="mentor-date">Mentor since 27 May, 2009</small>
+    <div class="container">
+        <section class="input-section">
+                <div class="mentor-column-left">
+                    <div class="card">
+                        <img src="./assets/img/pp.png" alt="Profile Picture" style="width:100%">
+                        <div class="card-container">
+                            <h4><b>Davies Wabuluka</b></h4> 
+                            <p>Computer Science</p> 
+                            <p>HTML/CSS</p>
+                            <p><small>Available for Session</small></p>
+                            <button id="myBtn">More</button>
+                        </div>
+                        
+                    </div>
+                    <div class="card">
+                        <img src="./assets/img/pp.png" alt="Profile Picture" style="width:100%">
+                        <div class="card-container">
+                            <h4><b>Davies Wabuluka</b></h4> 
+                            <p>Computer Science</p> 
+                            <p>HTML/CSS</p>
+                            <p><small>Not Available for Session</small></p>
+                        </div>
+                        
+                    </div>
+                    <div class="card">
+                            <img src="./assets/img/pp.png" alt="Profile Picture" style="width:100%">
+                            <div class="card-container">
+                                <h4><b>Davies Wabuluka</b></h4> 
+                                <p>Computer Science</p> 
+                                <p>HTML/CSS</p>
+                                <p><small>Not Available for Session</small></p>
+                            </div>
+                            
+                        </div>
                 </div>
-                <div class="mentor">
-                    <h3 class="mentor-name"><a href="mentor-view.html">Jane Doe</a></h3>
-                    <p>"Algorithms that forget their root are deemed to repeat it"</p>
-                    <h4>Lecturer Makerere University</h4>
-                    <small class="mentor-status-not-available">In Session</small>
-                    <small class="mentor-date">Mentor since 27 May, 2009</small>
+                
+
+                <div class="mentor-column-right">
+                    <h3>MY PROFILE</h3>
                 </div>
-                <div class="mentor">
-                    <h3 class="mentor-name"><a href="mentor-view.html">John Doe</a></h3>
-                    <p>"Algorithms that forget their root are deemed to repeat it"</p>
-                    <h4>Lecturer Makerere University</h4>
-                    <small class="mentor-status-not-available">In Session</small>
-                    <small class="mentor-date">Mentor since 27 May, 2009</small>
-                </div>
-                <div class="mentor">
-                    <h3 class="mentor-name"><a href="mentor-view.html">Marcus Tomlin</a></h3>
-                    <p>"Algorithms that forget their root are deemed to repeat it"</p>
-                    <h4>Lecturer Makerere University</h4>
-                    <small class="mentor-status-not-available">In Session</small>
-                    <small class="mentor-date">Mentor since 27 May, 2009</small>
-                </div>
-                <div class="mentor">
-                    <h3 class="mentor-name"><a href="mentor-view.html">Jimrone Five</a></h3>
-                    <p>"Algorithms that forget their root are deemed to repeat it"</p>
-                    <h4>Lecturer Makerere University</h4>
-                    <small class="mentor-status-available">Available</small>
-                    <small class="mentor-date">Mentor since 27 May, 2009</small>
-                </div>
-            </div>
-            <div class="mentor-column-right">
-                <p>Important Links</p>
-                <ul>
-                    <li><a href="">Profile</a></li>
-                    <li><a href="mentor-history.html">My Sessions</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 <footer>
     <div class="container">
-        <p>dwabuluka</p>
+        <p><center>dwabuluka</center></p>
     </div>
 </footer>
+<!-- The Modal -->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+    
+            <div class="modal-header">
+                <h1>Davies Wabuluka</h1>
+            </div>
+            <img src="./assets/img/pp.png" alt="Profile Picture" style="width:100%">
+            <p>A very hardworking human. Am always ready to help you whenever you need me</p>
+            <button id="myBtn">Request Session</button>
+        </div>
+        
+        </div>
+    
+
+
 </body>
 <script src="assets/js/custom.js"></script>
 </html>
