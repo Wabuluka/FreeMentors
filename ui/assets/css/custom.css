@@ -58,7 +58,19 @@ nav {
     text-align: center;
 }
 .column-container{
-    padding: 16px;
+    background-image: url(../img/mentorship.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 80px 30px;
+}
+.column-row .column-container h1{
+    text-align: center;
+    font-weight: 800;
+}
+.column-row .column-container p{
+    text-align: center;
 }
 .column-row h1{
     font-size: 20px;
@@ -68,11 +80,20 @@ nav {
     font-size: 18px;
     text-align: left;
 }
+
+  /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
-    padding: 16px;
-    text-decoration: none;
-    text-align: left;
-  }
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+.tabcontent h1{
+    text-align: center;
+}
+.tabcontent p{
+    text-align: center;
+}
 /* Input fields in the  */
 .tabcontent input[type=text]{
     width: 93%;
