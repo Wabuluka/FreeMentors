@@ -290,7 +290,7 @@ float: left;
 
 
 footer{
-    position: fixed;
+    clear: both;
     background: #123c69;
     color: #edc7b7;
     min-height: 10px;
@@ -366,7 +366,7 @@ footer{
         margin-top: 300px;
     }
     footer{
-        /* position: absolute; */
+        clear: both;
         background: #123c69;
         color: #edc7b7;
         min-height: 10px;
