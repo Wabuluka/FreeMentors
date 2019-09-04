@@ -14,7 +14,7 @@
                     <h1><a href="user-mentors.html">FreeMentor</a></h1>
                 <div class="nav-bar-right">
                     <a href="login.html">About</a>
-                    <a href="about.html">Logout</a>
+                    <a href="index.html">Logout</a>
                     <a href="javascript:void(0);" class="mobile" onclick="myFunction()">
                         <span></span>
                         <span></span>
@@ -149,5 +149,21 @@
 
 
 </body>
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+    modal.style.display = "none";
+    }
+    }
+</script>
 <script src="assets/js/custom.js"></script>
 </html>

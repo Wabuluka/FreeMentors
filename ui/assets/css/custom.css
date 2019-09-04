@@ -252,9 +252,35 @@ float: left;
     display: table;
     clear: both;
   }
-
-
-
+  .parent {
+    background: #888;
+    padding: 20px;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 24px;
+  }
+  .column {
+    padding: 10px;
+    min-height: 80vh;
+  }
+  .main {
+    background: #3054be;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/mentorship.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .sidebar {
+    /* background: #ee7000; */
+    color: #123c69;
+  }
+.sidebar .tabcontent{
+    color: #3054be;
+}
+.main .home-text{
+    padding-top: 500px;
+    text-align: center;
+}
 
 
 
@@ -350,3 +376,22 @@ footer{
         width: 100%;
     }
  }
+ @media only screen and (min-width: 641px){
+    .parent {
+      display: flex;
+    }
+    .column {
+      flex: 1;
+    }
+  }
+  @media only screen and (min-width: 1025px){
+    .main {
+      flex: 2;
+    }
+    .sidebar {
+      flex: 1;
+    }
+    .sidebar .tabcontent{
+        color: #333;
+    }
+  }
