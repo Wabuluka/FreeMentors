@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mentors - FreeMentor</title>
+    <link href="../css/custom.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+        <header>
+                <nav class="top-navigation" id="myTopnav">
+                    <div class="container">
+                            <h1><a href="user-mentors.html">FreeMentor</a></h1>
+                        <div class="nav-bar-right">
+                            <a href="about.html">About</a>
+                            <a href="../index.html">Logout</a>
+                            <a href="javascript:void(0);" class="mobile" onclick="myFunction()">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+    <section class="input-section">
+        <div class="container">
+            <div class="mentor-column-left">
+                    <div class="card">
+                            <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+                            <div class="card-container">
+                                <h4><b>Davies Wabuluka</b></h4> 
+                                <p>Computer Science</p> 
+                                <p>HTML/CSS</p>
+                                <p><small>New Request</small></p>
+                            <button id="myBtn">Explore</button>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                            <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+                            <div class="card-container">
+                                <h4><b>Davies Wabuluka</b></h4> 
+                                <p>Computer Science</p> 
+                                <p>HTML/CSS</p>
+                                <p><small>Session Complete</small></p>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                                <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+                                <div class="card-container">
+                                    <h4><b>Davies Wabuluka</b></h4> 
+                                    <p>Computer Science</p> 
+                                    <p>HTML/CSS</p>
+                                    <p><small>Session Complete</small></p>
+                                </div>
+                                
+                            </div>
+                            <div class="card">
+                                    <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+                                    <div class="card-container">
+                                        <h4><b>Davies Wabuluka</b></h4> 
+                                        <p>Computer Science</p> 
+                                        <p>HTML/CSS</p>
+                                        <p><small>Session Complete</small></p>
+                                    </div>
+                                    
+                                </div>
+                    </div>
+            
+                    <div class="card">
+                            <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+                            <div class="card-container">
+                                <h4><b>Davies Wabuluka</b></h4> 
+                                <p>Computer Science</p> 
+                                <p>HTML/CSS</p>
+                                <p><small>New Request</small></p>
+                            <button id="myBtn">Explore</button>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                            <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+                            <div class="card-container">
+                                <h4><b>Davies Wabuluka</b></h4> 
+                                <p>Computer Science</p> 
+                                <p>HTML/CSS</p>
+                                <p><small>Session Complete</small></p>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                                <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+                                <div class="card-container">
+                                    <h4><b>Davies Wabuluka</b></h4> 
+                                    <p>Computer Science</p> 
+                                    <p>HTML/CSS</p>
+                                    <p><small>Session Complete</small></p>
+                                </div>
+                                
+                            </div>
+                    </div>
+            </div>
+            <div class="mentor-column-right-o">
+                <h3><center>MY PROFILE</center></h3>
+                <div class="profile">
+                        <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+                    <p>Name: <br> John Doe</p>
+                    <P>Status: <br> Is Mentor</P>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p><center>dwabuluka</center></p>
+        </div>
+    </footer>
+
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+    
+            <div class="modal-header">
+                <h1>Davies Wabuluka</h1>
+            </div>
+            <img src="../img/pp.png" alt="Profile Picture" style="width:100%">
+            <p>A very hardworking human. Am always ready to help you whenever you need me</p>
+            <button id="myBtn">Accept Session</button><button id="myBtn">Decline Session</button>
+        </div>
+        
+        </div>
+    
+</body>
+<script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+        }
+        }
+    </script>
+<script src="../js/custom.js"></script>
+</html>
