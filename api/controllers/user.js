@@ -32,8 +32,7 @@ class UserController{
     }
 
 
-    static UserLogin(req, res){
-        
+    static UserLogin(req, res){    
         const token = validate.generateToken(req.userId, req.email);
         return res.status(200).send({
             status: 200,
@@ -46,14 +45,7 @@ class UserController{
     }
 
     static GetAvailableMentors(req, res){
-        const availableMentors = users.filter(user => user.isMentor == "true");
-        if(availableMentors.length <= 0){
-            return res.status(404).send({
-                status: 404,
-                message: "No available mentors"
-            }); 
-        }
-        console.log(availableMentors)
+        
         return res.status(200).send({
             status: 200,
             data: availableMentors

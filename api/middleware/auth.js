@@ -42,7 +42,7 @@ class Auth{
         }
         try{
             const decodedUser = validator.verifyToken(token);
-            const loadedUser = User.users.find(u => u.email === decodedUser.email);
+            const loadedUser = User.users.find(u => u.email === decodedUser.id);
             if(!loadedUser){
                 return res.status(401).send({
                     status: 401,

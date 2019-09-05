@@ -11,7 +11,7 @@ userRoutes.post('/auth/signup', x.signup, usercontroller.UserController.Register
 // user can login
 userRoutes.post('/auth/login', x.signin, usercontroller.UserController.UserLogin);
 // a user gets all the mentors available
-userRoutes.get('/mentors', Auth.verifyUser, usercontroller.UserController.GetAvailableMentors);
+userRoutes.get('/mentors', x.getavialablementors, Auth.verifyUser, usercontroller.UserController.GetAvailableMentors);
 // user gets one mentor
 userRoutes.get('/mentors/:id', Auth.verifyUser, usercontroller.UserController.GetOneMentor);
 // users create sessions

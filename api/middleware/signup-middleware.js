@@ -33,23 +33,34 @@ const signup = (req, res, next) =>{
 }
 const signin = (req, res, next) => {
     const loginUser = userList.find(user => user.email === req.body.email);
-        if(!loginUser){
-            return res.status(404).send({
-                status: 404,
-                error: `User with  was not found`
-            });
-        }
-        const passwordCompared = validate.comparePassword(loginUser.password, req.body.password);
-        if(!passwordCompared){
-            return res.status(401).send({
-                status: 401,
-                error: "Login was denied",
-                cm:loginUser.password,
-                ps : req.body.password
-            });
-        }
-        req.userId = loginUser.id;
-        req.email = loginUser.email;
-        next();
+    if(!loginUser){
+        return res.status(404).send({
+            status: 404,
+            error: `User with  was not found`
+        });
+    }
+    const passwordCompared = validate.comparePassword(loginUser.password, req.body.password);
+    if(!passwordCompared){
+        return res.status(401).send({
+            status: 401,
+            error: "Login was denied",
+            cm:loginUser.password,
+            ps : req.body.password
+        });
+    }
+    req.userId = loginUser.id;
+    req.email = loginUser.email;
+    next();
 }
-export default {signup, signin};
+
+const getavialablementors = (req, res, next) =>{
+    const availableMentors = userList.filter(user => user.isMentor == "true");
+    if(availableMentors.length <= 0){
+        return res.status(404).send({
+            status: 404,
+            message: "No available mentors"
+        }); 
+    }
+    next();
+}
+export default {signup, signin, getavialablementors};
