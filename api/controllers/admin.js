@@ -1,7 +1,7 @@
 import Admin from '../models/admin';
 import User from '../controllers/user';
 import dotenv from 'dotenv';
-import validate from '../middleware/helper';
+import validate from '../helpers/helper';
 import moment from 'moment';
 
 const admins = [];
@@ -32,12 +32,9 @@ class AdminController{
         admins.push(admin);
         return res.status(201).json({
             status: 201,
+            message: 'Account  was successfully',
             data:{
-                token: token,
-                id: admin.id,
-                email: admin.email,
-                password: admin.password,
-                createdOn: admin.createdOn
+                token: token
             }
         })
     }
@@ -60,10 +57,9 @@ class AdminController{
         const token = validate.generateToken(loginAdmin.email)
         return res.status(200).send({
             status: 200,
+            message: "You are logged in successfully",
             data: {
-                token: token,
-                id: loginAdmin.id,
-                message: "You are logged in successfully"
+                token: token
             } 
         })
     }
@@ -109,7 +105,8 @@ class AdminController{
         oneUser.lastModified = modified
         return res.status(202).send({
             status: 202,
-            oneUser 
+            message: 'User account changed to mentor',
+            data: oneUser 
         })
     }
 
