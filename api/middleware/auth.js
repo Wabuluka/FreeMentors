@@ -1,6 +1,6 @@
 import User from '../controllers/user';
 import Admin from '../controllers/admin';
-import validator from './helper';
+import validator from '../helpers/helper';
 
 class Auth{
     static verifyAdmin(req, res, next){
@@ -38,14 +38,16 @@ class Auth{
         }
         try{
             const decodedUser = validator.verifyToken(token);
-            const loadedUser = User.users.find(u => u.email === decodedUser.userEmail);
+            const loadedUser = User.users.find(u => u.email === decodedUser.email);
             if(!loadedUser){
                 return res.status(401).send({
                     status: 401,
-                    error: 'You are not a user'
+                    error: 'You are not authorized'
                 })
             }
-            next()
+            req.Authorize = decodedUser
+            // return res.send(req.Authorize)
+            next();
 
         }catch(error){
             return res.status(401).send({

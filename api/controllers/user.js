@@ -1,7 +1,7 @@
 import User from '../models/user';
 import Sessions from '../controllers/session';
 import dotenv from 'dotenv';
-import validate from '../middleware/helper';
+import validate from '../helpers/helper';
 
 const users = [];
 dotenv.config();
@@ -45,15 +45,10 @@ class UserController{
         users.push(user);
         return res.status(201).json({
             status: 201,
+            message: 'User created successfully',
             data:{
                 token: token,
-                id: user.id,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                email: user.email,
-                password: user.password,
-                isMentor: user.isMentor,
-                createdOn: user.createdOn,
+                id: user.id
                 // status: user.status
             }
         })
@@ -75,7 +70,7 @@ class UserController{
                 error: "Login was denied"
             });
         }
-        const token = validate.generateToken(loginUser.email)
+        const token = validate.generateToken(loginUser.id, loginUser.email)
         return res.status(200).send({
             status: 200,
             data: {

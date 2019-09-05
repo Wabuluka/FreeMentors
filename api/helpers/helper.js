@@ -39,9 +39,10 @@ const Helper = {
     /**
      * Generate token
      */
-    generateToken(id){
+    generateToken(id, email){
         const token = jwt.sign({
-            userEmail: id
+            id: id,
+            email: email
         },
         process.env.SECRETKEY, { expiresIn: '1d' }
         );
