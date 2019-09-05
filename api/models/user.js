@@ -1,5 +1,6 @@
 import moment from 'moment';
 
+const users = [];
 class User{
     constructor(id, firstName, lastName, email, password, 
         address, bio, occupation, expertise, status){
@@ -18,4 +19,4 @@ class User{
             this.lastModified = moment().format('LLLL');
     }    
 }
-export default User;
+export default {User, users};

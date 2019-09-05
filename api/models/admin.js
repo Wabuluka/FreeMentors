@@ -1,5 +1,6 @@
 import moment from 'moment';
 
+const admins = [];
 class Admin{
     constructor(id, email, password){
             this.id = id;
@@ -8,4 +9,4 @@ class Admin{
             this.createdOn = moment().format('LLLL');
     }
 }
-export default Admin;
+export default {Admin, admins};

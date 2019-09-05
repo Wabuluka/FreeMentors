@@ -20,6 +20,7 @@ describe('Testing the default routes', () =>{
                 done();
             });
     });
+    
     it('Should check the landing url', (done) =>{
         chai
             .request(app)

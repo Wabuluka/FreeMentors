@@ -1,28 +1,23 @@
 import chai, {expect} from 'chai';
 import chaiHttp from 'chai-http';
+import userDetails from './mocks/mocks';
 import app from '../server';
 
 
 chai.should();
 chai.use(chaiHttp);
 
-let userToken;
+let adminToken;
+const admin = userDetails.admin;
 
-
-describe('Testing routes for the user', () =>{
-    it('should signup a new user', (done) => {
+describe('Testing Admin Routes', () =>{
+    it('should signup a new admin', (done) => {
         chai
             .request(app)
-            .post('/api/v1/auth/signup')
+            .post('/api/v1/auth/admin/signup')
             .send({
-                "firstName": "Davies",
-                "lastName": "Wabuluka",
-                "email": "two@test.com",
-                "password": "test@123",
-                "address": "nalumunye",
-                "bio": "a good man",
-                "occupation": "teacher",
-                "expertise": "cooking"
+                "email":admin[0]['email'],
+                "password":admin[0]['password']
             })
             .then((res) => {
                 expect(res.body).to.be.an('object');
@@ -33,19 +28,14 @@ describe('Testing routes for the user', () =>{
             })
             .catch(err => done(err));
     });
-    it('A user can not create two accounts with same email', (done) => {
+
+    it('admin already created', (done) => {
         chai
             .request(app)
-            .post('/api/v1/auth/signup')
+            .post('/api/v1/auth/admin/signup')
             .send({
-                "firstName": "Davies",
-                "lastName": "Wabuluka",
-                "email": "two@test.com",
-                "password": "test@123",
-                "address": "nalumunye",
-                "bio": "a good man",
-                "occupation": "teacher",
-                "expertise": "cooking"
+                "email":admin[0]['email'],
+                "password":admin[0]['password']
             })
             .then((res) => {
                 expect(res.body).to.be.an('object');
@@ -55,16 +45,17 @@ describe('Testing routes for the user', () =>{
             })
             .catch(err => done(err));
     });
-    it('should login a user', (done) => {
+
+    it('should login admin', (done) => {
         chai
             .request(app)
-            .post('/api/v1/auth/login')
+            .post('/api/v1/auth/admin/login')
             .send({
-                "email": "two@test.com",
-                "password": "test@123"
+                "email":"test@admin.com",
+                "password":"test123"
             })
             .then((res) => {
-                userToken = res.body.data['token'];
+                adminToken = res.body.data['token'];
                 expect(res.body).to.be.an('object');
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('data');
@@ -72,14 +63,15 @@ describe('Testing routes for the user', () =>{
                 done();
             })
             .catch(err => done(err));
-    });
-    it('login user not found', (done) => {
+    })
+
+    it('admin user not found', (done) => {
         chai
             .request(app)
-            .post('/api/v1/auth/login')
+            .post('/api/v1/auth/admin/login')
             .send({
-                "email": "twothree@test.com",
-                "password": "test123"
+                "email":"testtest@admin.com",
+                "password":"test123"
             })
             .then((res) => {
                 expect(res.body).to.be.an('object');
@@ -88,14 +80,15 @@ describe('Testing routes for the user', () =>{
                 done();
             })
             .catch(err => done(err));
-    });
-    it('login is denied', (done) => {
+    })
+
+    it('login denied', (done) => {
         chai
             .request(app)
-            .post('/api/v1/auth/login')
+            .post('/api/v1/auth/admin/login')
             .send({
-                "email": "two@test.com",
-                "password": "test1231"
+                "email":"test@admin.com",
+                "password":"test1231"
             })
             .then((res) => {
                 expect(res.body).to.be.an('object');
@@ -104,6 +97,19 @@ describe('Testing routes for the user', () =>{
                 done();
             })
             .catch(err => done(err));
-    });
+    })
+    it('admin gets all users in the system', (done) => {
+        chai
+            .request(app)
+            .get('/api/v1/admin/users/all')
+            .set('x-access-token', adminToken)
+            .then((res) => {
+                expect(res.body).to.be.an('object');
+                expect(res.body).to.have.property('status');
+                expect(res.body).to.have.property('data');
+                done();
+            })
+            .catch(err => done(err));
+    })
     
 })

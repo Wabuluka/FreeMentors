@@ -1,7 +1,8 @@
 import User from '../controllers/user';
-import Admin from '../controllers/admin';
+import Admin from '../models/admin';
 import validator from '../helpers/helper';
 
+const admins = Admin.admins;
 class Auth{
     static verifyAdmin(req, res, next){
         const token = req.headers['x-access-token'];
@@ -12,11 +13,14 @@ class Auth{
         }
         try{
             const decodedAdmin = validator.verifyToken(token);
-            const AdminLoaded = Admin.admins.find(a => a.email === decodedAdmin.userEmail);
+            const AdminLoaded = admins.find(a => a.email === decodedAdmin.id);
             if(!AdminLoaded){
                 return res.status(401).send({
                     status: 401,
-                    error: 'You are not admin'
+                    error: 'You are not admin',
+                    adim: decodedAdmin,
+                    ad: AdminLoaded,
+                    xx: admins
                 })
             }
             next()
@@ -46,7 +50,6 @@ class Auth{
                 })
             }
             req.Authorize = decodedUser
-            // return res.send(req.Authorize)
             next();
 
         }catch(error){

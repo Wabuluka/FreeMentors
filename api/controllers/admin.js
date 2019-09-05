@@ -1,12 +1,14 @@
-import Admin from '../models/admin';
-import User from '../controllers/user';
+import adminDetails from '../models/admin';
+import User from '../models/user';
 import dotenv from 'dotenv';
 import validate from '../helpers/helper';
 import moment from 'moment';
 
-const admins = [];
-dotenv.config();
 
+dotenv.config();
+const admins = adminDetails.admins;
+const userList = User.users;
+const Admin = adminDetails.Admin;
 class AdminController{
     static RegisterAdmin(req, res){
         const id = admins.length +1;
@@ -28,7 +30,7 @@ class AdminController{
         const admin = new Admin(
             id, req.body.email, password
         )
-        const token = validate.generateToken(admin.email)
+        const token = validate.generateToken(admin.id, admin.email)
         admins.push(admin);
         return res.status(201).json({
             status: 201,
@@ -65,7 +67,7 @@ class AdminController{
     }
 
     static GetAllUsers(req, res){
-        const allusers = User.users;
+        const allusers = userList;
         if(allusers.length <= 0){
             return res.status(404).send({
                 status: 404,
@@ -79,7 +81,7 @@ class AdminController{
     }
 
     static GetOneUser(req, res){
-        const oneUser = User.users.find(user => user.id == req.params.id);
+        const oneUser = userList.find(user => user.id == req.params.id);
         if(!oneUser){
             return res.status(404).send({
                 status: 404,
@@ -93,7 +95,7 @@ class AdminController{
     }
 
     static CheckToMentor(req, res){
-        const oneUser = User.users.find(user => user.id == req.params.id);
+        const oneUser = userList.find(user => user.id == req.params.id);
         if(!oneUser){
             return res.status(404).send({
                 status: 404,
@@ -111,15 +113,15 @@ class AdminController{
     }
 
     static DeleteOneUser(req, res){
-        const oneUser = User.users.find(user => user.id == req.params.id);
+        const oneUser = userList.find(user => user.id == req.params.id);
         if(!oneUser){
             return res.status(404).send({
                 status: 404,
                 error: 'Not Found'
             })
         }
-        const index = User.users.indexOf(oneUser)
-        const removeOne = User.users.splice(index, 1)
+        const index = userList.indexOf(oneUser)
+        const removeOne = userList.splice(index, 1)
         if(removeOne){
             return res.status(200).send({
                 status: 200,
