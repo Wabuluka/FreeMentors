@@ -22,7 +22,8 @@ class AdminController{
             status: 201,
             message: 'Account  was successfully created',
             data:{
-                token: token
+                token: token,
+                data: admin
             }
         })
     }
