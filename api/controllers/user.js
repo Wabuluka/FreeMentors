@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import validate from '../helpers/helper';
 
 
+const sessions = Sessions.SessionsData;
 
 
 dotenv.config();
@@ -61,7 +62,13 @@ class UserController{
     }
 
     static mentorViewSessionRequests(req, res){
-        const sessionRequests = req.sessionrequest
+        const sessionRequests = sessions.filter(session => session.mentorId === 1)
+        if(sessionRequests <= 0){
+            return res.status(404).send({
+                status: 404,
+                error: 'No sessions for you'
+            })
+        }
         return res.status(200).send({
             status: 200,
             data: sessionRequests
@@ -70,7 +77,7 @@ class UserController{
 
     static mentorViewSingleSessionRequest(req, res){
         const sessionId = req.body.id
-        const sessionRequests = Sessions.SessionsData.filter(session => session.mentorId === 1, session => session.id === sessionId)
+        const sessionRequests = sessions.filter(session => session.mentorId === 1, session => session.id === sessionId)
         if(sessionRequests <= 0){
             return res.status(404).send({
                 status: 404,

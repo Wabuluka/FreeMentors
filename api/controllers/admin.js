@@ -23,7 +23,7 @@ class AdminController{
             message: 'Account  was successfully created',
             data:{
                 token: token,
-                data: admin
+                id: admin.id
             }
         })
     }

@@ -1,8 +1,9 @@
 import User from '../models/user';
 import validate from '../helpers/helper';
-
+import sessions from '../models/session';
 
 const userList = User.users;
+const sessionlist = sessions.SessionsData
 
 const signup = (req, res, next) =>{
     const passInput = req.body.password;
@@ -79,8 +80,8 @@ const getonementor = (req, res, next) => {
 }
 
 const mentorviewsessionrequests = (req, res, next) => {
-    const sessionRequests = Sessions.SessionsData.filter(session => session.mentorId === req.Authorize.email)
-    if(!sessionRequests){
+    const sessionRequests = sessionlist.filter(session => session.mentorId === req.Authorize.email)
+    if(sessionRequests.mentorId !== req.Authorize.email){
         return res.status(404).send({
             status: 404,
             error: 'No sessions for you'
