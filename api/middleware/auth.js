@@ -1,4 +1,4 @@
-import User from '../controllers/user';
+import User from '../models/user';
 import Admin from '../models/admin';
 import validator from '../helpers/helper';
 
@@ -13,7 +13,7 @@ class Auth{
         }
         try{
             const decodedAdmin = validator.verifyToken(token);
-            const AdminLoaded = admins.find(a => a.email === decodedAdmin.id);
+            const AdminLoaded = admins.find(a => a.email === decodedAdmin.email);
             if(!AdminLoaded){
                 return res.status(401).send({
                     status: 401,
@@ -42,7 +42,7 @@ class Auth{
         }
         try{
             const decodedUser = validator.verifyToken(token);
-            const loadedUser = User.users.find(u => u.email === decodedUser.id);
+            const loadedUser = User.users.find(u => u.email === decodedUser.email);
             if(!loadedUser){
                 return res.status(401).send({
                     status: 401,

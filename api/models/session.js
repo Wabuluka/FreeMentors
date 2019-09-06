@@ -1,4 +1,5 @@
 import moment from 'moment';
+const SessionsData = [];
 
 class SessionModel{
     constructor(sessionId, mentorId, questions, menteeEmail, 
@@ -12,4 +13,4 @@ class SessionModel{
             this.lastModified = moment().format('LLLL');
     }
 }
-export default SessionModel;
+export default {SessionModel, SessionsData};

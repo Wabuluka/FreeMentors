@@ -1,5 +1,5 @@
 import User from '../models/user';
-import Sessions from '../controllers/session';
+import Sessions from '../models/session';
 import dotenv from 'dotenv';
 import validate from '../helpers/helper';
 
@@ -36,16 +36,15 @@ class UserController{
         const token = validate.generateToken(req.userId, req.email);
         return res.status(200).send({
             status: 200,
+            message: "You are logged in successfully",
             data: {
-                token: token,
-                id: req.userId,
-                message: "You are logged in successfully"
+                token: token
             } 
         });
     }
 
     static GetAvailableMentors(req, res){
-        
+        const availableMentors = req.availableMentors
         return res.status(200).send({
             status: 200,
             data: availableMentors
@@ -54,14 +53,7 @@ class UserController{
     }
 
     static GetOneMentor(req, res){
-        const oneMentor = req.body.id;
-        const availableMentor = userList.find(user => user.isMentor == "true", user => user.id === oneMentor);
-        if(!availableMentor){    
-            return res.status(404).send({
-                status: 404,
-                error: 'No mentors available at the moment'
-            })
-        }
+        const availableMentor = req.onementor
         return res.status(200).send({
             status: 200,
             data: availableMentor
@@ -69,13 +61,7 @@ class UserController{
     }
 
     static mentorViewSessionRequests(req, res){
-        const sessionRequests = Sessions.SessionsData.filter(session => session.mentorId === 1)
-        if(sessionRequests <= 0){
-            return res.status(404).send({
-                status: 404,
-                error: 'No sessions for you'
-            })
-        }
+        const sessionRequests = req.sessionrequest
         return res.status(200).send({
             status: 200,
             data: sessionRequests

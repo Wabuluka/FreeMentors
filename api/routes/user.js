@@ -13,7 +13,7 @@ userRoutes.post('/auth/login', x.signin, usercontroller.UserController.UserLogin
 // a user gets all the mentors available
 userRoutes.get('/mentors', x.getavialablementors, Auth.verifyUser, usercontroller.UserController.GetAvailableMentors);
 // user gets one mentor
-userRoutes.get('/mentors/:id', Auth.verifyUser, usercontroller.UserController.GetOneMentor);
+userRoutes.get('/mentors/:id', x.getonementor, Auth.verifyUser, usercontroller.UserController.GetOneMentor);
 // users create sessions
 userRoutes.post('/sessions', Auth.verifyUser, sessionController.SessionController.createSession);
 // mentor sees session requests

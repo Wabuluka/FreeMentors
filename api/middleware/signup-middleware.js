@@ -3,8 +3,8 @@ import validate from '../helpers/helper';
 
 
 const userList = User.users;
+
 const signup = (req, res, next) =>{
-    
     const passInput = req.body.password;
     if (passInput.length < 8){
         return res.status(400).send({
@@ -40,12 +40,11 @@ const signin = (req, res, next) => {
         });
     }
     const passwordCompared = validate.comparePassword(loginUser.password, req.body.password);
+    console.log(passwordCompared);
     if(!passwordCompared){
         return res.status(401).send({
             status: 401,
-            error: "Login was denied",
-            cm:loginUser.password,
-            ps : req.body.password
+            error: "Login was denied"
         });
     }
     req.userId = loginUser.id;
@@ -61,6 +60,33 @@ const getavialablementors = (req, res, next) =>{
             message: "No available mentors"
         }); 
     }
+    req.availableMentors = availableMentors
     next();
 }
-export default {signup, signin, getavialablementors};
+
+const getonementor = (req, res, next) => {
+    const oneMentor = req.params.id;
+    const availableMentor = userList.filter(user => user.isMentor == "true" &&  user.id == oneMentor);
+    console.log(oneMentor)
+    if(!availableMentor){    
+        return res.status(404).send({
+            status: 404,
+            error: 'No mentors available at the moment'
+        })
+    }
+    req.onementor = availableMentor
+    next()
+}
+
+const mentorviewsessionrequests = (req, res, next) => {
+    const sessionRequests = Sessions.SessionsData.filter(session => session.mentorId === req.Authorize.email)
+    if(!sessionRequests){
+        return res.status(404).send({
+            status: 404,
+            error: 'No sessions for you'
+        })
+    }
+    req.sessionrequest = sessionRequests
+    next();
+}
+export default {signup, signin, getavialablementors, getonementor, mentorviewsessionrequests };
