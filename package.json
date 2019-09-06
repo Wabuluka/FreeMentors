@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wabuluka/myproject_one.git"
+    "url": "git+https://github.com/Wabuluka/FreeMentors.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Wabuluka/myproject_one/issues"
+    "url": "https://github.com/Wabuluka/FreeMentors/issues"
   },
-  "homepage": "https://github.com/Wabuluka/myproject_one#readme",
+  "homepage": "https://github.com/Wabuluka/FreeMentors#readme",
   "dependencies": {
     "@babel/core": "^7.5.5",
     "babel-cli": "^6.26.0",
