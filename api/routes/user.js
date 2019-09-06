@@ -2,17 +2,18 @@ import Router from 'express';
 import usercontroller from '../controllers/user';
 import sessionController from '../controllers/session';
 import Auth from '../middleware/auth';
+import usermiddleware from '../middleware/signup-middleware';
 
 const userRoutes = Router();
 
 // users create accounts to use the application
-userRoutes.post('/auth/signup', usercontroller.UserController.RegisterUser);
+userRoutes.post('/auth/signup', usermiddleware.signup, usercontroller.UserController.RegisterUser);
 // user can login
-userRoutes.post('/auth/login', usercontroller.UserController.UserLogin);
+userRoutes.post('/auth/login', usermiddleware.signin, usercontroller.UserController.UserLogin);
 // a user gets all the mentors available
-userRoutes.get('/mentors', Auth.verifyUser, usercontroller.UserController.GetAvailableMentors);
+userRoutes.get('/mentors', usermiddleware.getavialablementors, Auth.verifyUser, usercontroller.UserController.GetAvailableMentors);
 // user gets one mentor
-userRoutes.get('/mentors/:id', Auth.verifyUser, usercontroller.UserController.GetOneMentor);
+userRoutes.get('/mentors/:id', usermiddleware.getonementor, Auth.verifyUser, usercontroller.UserController.GetOneMentor);
 // users create sessions
 userRoutes.post('/sessions', Auth.verifyUser, sessionController.SessionController.createSession);
 // mentor sees session requests

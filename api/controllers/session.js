@@ -1,24 +1,23 @@
 import Sessions from '../models/session';
-import Auth from '../middleware/auth';
 
-const SessionsData = [];
+const sessionModel = Sessions.SessionModel;
+const sessions = Sessions.SessionsData;
 
 class SessionController{
     static createSession(req, res){
-        // const user = Auth.verifyUser(req, res);
-        // return res.status(201).send(user)
-        const sessionId = SessionsData.length + 1;
+        const sessionId = sessions.length + 1;
         const status = "pending";
         const menteeId = req.params.token;
+       
 
-        const newSession = new Sessions(
+        const newSession = new sessionModel(
             sessionId, 
             req.Authorize.email,
             req.body.questions, 
             req.body.menteeEmail,
             status
         )
-        SessionsData.push(newSession);
+        sessions.push(newSession);
         console.log(menteeId)
         return res.status(201).send({
             status: 201,
@@ -27,4 +26,4 @@ class SessionController{
     }
 }
 
-export default {SessionController, SessionsData};
+export default {SessionController};
