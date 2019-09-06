@@ -2,7 +2,7 @@ const users = [
     {
         "firstName": "Davies",
         "lastName": "Wabuluka",
-        "email": "two@test.com",
+        "email": "two2@test.com",
         "password": "test@123",
         "address": "nalumunye",
         "bio": "a good man",
@@ -12,7 +12,7 @@ const users = [
 ];
 const admin = [
     {
-        "email":"test@admin.com",
+        "email":"test2@admin.com",
         "password":"test123"
     }
 ];
